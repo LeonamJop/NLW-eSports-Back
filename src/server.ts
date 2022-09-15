@@ -1,8 +1,16 @@
 import express from 'express';
 
-const app = express()
+const app = express();
 
-app.get('/ads', (request, reponse) => {
+app.get('/games', (request, response) => {
+    return response.json([]);
+});
+
+app.post('/ads', (request, response) => {
+    return response.status(201).json([]);
+})
+
+app.get('/games/:id/ads', (request, reponse) => {
     return reponse.json([
         {
             id: 1,
@@ -18,6 +26,10 @@ app.get('/ads', (request, reponse) => {
             nome: "Anúncio 4",
         },
     ])
+});
+
+app.get('/games/:id/discord', (request, reponse) => {
+    return reponse.json([])
 });
 
 app.listen(3333)
